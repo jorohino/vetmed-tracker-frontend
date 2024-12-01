@@ -1,0 +1,55 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Roboto";
+  font-weight: 400;
+  padding: 10px 40px 25px;
+}
+
+.footer__copyright {
+  color: rgba(182, 188, 191, 1);
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.footer__links {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.footer__home-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0 40px 0 0;
+}
+
+.footer__t10-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0 40px 0 0;
+}
+
+.footer__gh-btn {
+  background: no-repeat transparent center url("../../assets/github.svg");
+  border: none;
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.footer__fb-btn {
+  background: no-repeat transparent center url("../../assets/fb.svg");
+  border: none;
+  height: 24px;
+  width: 24px;
+  padding: 0;
+  margin-left: 24px;
+  cursor: pointer;
+}
