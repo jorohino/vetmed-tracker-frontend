@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "Roboto Slab";
+  src: url("../vendor/fonts/RobotoSlab-VariableFont_wght.ttf") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 400;
+  font-display: swap;
+  src: url("../vendor/fonts/Roboto-Regular.ttf") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 500;
+  font-display: swap;
+  src: url("../vendor/fonts/Roboto-Medium.ttf") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 700;
+  font-display: swap;
+  src: url("../vendor/fonts/Roboto-Bold.ttf") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 900;
+  font-display: swap;
+  src: url("../vendor/fonts/Roboto-Black.ttf") format("woff");
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  src: url("../vendor/fonts/SourceSans3-VariableFont_wght.ttf") format("woff");
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../vendor/fonts/Inter-VariableFont_wght.ttf") format("woff");
+}
