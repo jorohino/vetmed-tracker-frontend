@@ -4,9 +4,9 @@ import DataCard from "../DataCard/DataCard";
 
 function FeaturedData({}) {
   return (
-    <div className="news-card-list">
-      <h1 className="news-card-list__header">Featured Data:</h1>
-      <div className="news-card-list__container"></div>
+    <div className="featured-data">
+      <h1 className="featured-data__header">Featured Data:</h1>
+      <div className="featured-data__container"></div>
     </div>
   );
 }
