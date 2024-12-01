@@ -1,11 +1,12 @@
 import { React } from "react";
+import logo from "../../assets/logo.png";
 import "./Navigation.css";
 
 function Navigation({}) {
   return (
     <div className="navigation">
       <div className="navigation__logo-container">
-        <img className="navigation__logo"></img>
+        <img className="navigation__logo" src={logo}></img>
         <h1 className="navigation__title">VetMed Reaction Tracker</h1>
       </div>
       <div className="navigation__btn-container">
