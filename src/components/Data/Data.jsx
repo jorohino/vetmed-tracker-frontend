@@ -3,11 +3,11 @@ import "./Data.css";
 import DataHeader from "../DataHeader/DataHeader";
 import DataCardList from "../DataCardList/DataCardList";
 
-function Data({}) {
+function Data({ onCardClick }) {
   return (
     <>
       <DataHeader></DataHeader>
-      <DataCardList></DataCardList>
+      <DataCardList onCardClick={onCardClick}></DataCardList>
     </>
   );
 }

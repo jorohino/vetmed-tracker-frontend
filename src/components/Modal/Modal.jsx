@@ -1,12 +1,16 @@
 import { React } from "react";
 import "./Modal.css";
 
-function Modal({}) {
+function Modal({ isOpen, onClose, card }) {
   return (
-    <div className="modal">
+    <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
       <div className="modal__content">
-        <h2 className="modal__title">More Info</h2>
-        <button className="modal__close" type="button"></button>
+        <h2 className="modal__title">Detailed View</h2>
+        <button
+          onClick={onClose}
+          className="modal__close"
+          type="button"
+        ></button>
         <div className="modal__drug-info-container">
           <p className="modal__drug-info">
             <strong>Brand name:</strong>
@@ -23,7 +27,7 @@ function Modal({}) {
             <strong>Species:</strong>
           </p>
           <p className="modal__rxn-info">
-            <strong>Breeds:</strong>
+            <strong>Associated Breeds:</strong>
           </p>
           <p className="modal__rxn-info">
             <strong>Total # of Animals Treated:</strong>

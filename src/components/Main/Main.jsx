@@ -5,12 +5,12 @@ import FeaturedData from "../FeaturedData/FeaturedData";
 import About from "../About/About";
 import Modal from "../Modal/Modal";
 
-function Main({}) {
+function Main({ onCardClick }) {
   return (
     <>
       <Header />
       <main className="main">
-        <FeaturedData />
+        <FeaturedData onCardClick={onCardClick} />
         <About />
       </main>
       <Modal></Modal>
