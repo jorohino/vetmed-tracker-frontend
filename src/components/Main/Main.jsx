@@ -3,6 +3,7 @@ import "./Main.css";
 import Header from "../Header/Header";
 import FeaturedData from "../FeaturedData/FeaturedData";
 import About from "../About/About";
+import Modal from "../Modal/Modal";
 
 function Main({}) {
   return (
@@ -12,6 +13,7 @@ function Main({}) {
         <FeaturedData />
         <About />
       </main>
+      <Modal></Modal>
     </>
   );
 }

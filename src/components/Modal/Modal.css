@@ -1,0 +1,72 @@
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__close {
+  background: center no-repeat url("../../assets/close.svg");
+  border: none;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  bottom: calc(100%);
+  left: calc(100%);
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+.modal__content {
+  width: 100%;
+  max-width: 430px;
+  padding: 34px 36px 28px 36px;
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  border-radius: 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__title {
+  margin: 0 0 22px 0;
+  padding: 0;
+  font-family: "Roboto";
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 28.13px;
+  color: rgb(26, 27, 34);
+}
+
+.modal__drug-info-container {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: "Inter";
+  font-weight: 400;
+}
+
+.modal__drug-info {
+}
+
+.modal__rxn-info-container {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: "Inter";
+  font-weight: 400;
+}
+
+.modal__rxn-info {
+}
