@@ -6,7 +6,7 @@ import DataCardList from "../DataCardList/DataCardList";
 function Data({ onCardClick }) {
   return (
     <>
-      <DataHeader></DataHeader>
+      <DataHeader />
       <DataCardList onCardClick={onCardClick}></DataCardList>
     </>
   );

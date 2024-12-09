@@ -1,11 +1,38 @@
-import { React, useState } from "react";
+import { React } from "react";
 import "./SearchForm.css";
 import { FaSearch } from "react-icons/fa";
 
-function SearchForm({ onSearch }) {
-  const [input, setInput] = useState("");
-  const handleInputChange = (e) => {
-    setInput(e.target.value);
+function SearchForm({ onSearch, setResults, inputValue, setInputValue }) {
+  const fetchData = (value) => {
+    const encodedValue = encodeURIComponent(value);
+
+    fetch(
+      `https://api.fda.gov/animalandveterinary/event.json?search=drug.active_ingredients.name:${encodedValue}`
+    )
+      .then((res) => res.json())
+      .then((json) => {
+        const results = (json.results || []).filter((result) => {
+          return (
+            result.drug &&
+            result.drug.some((drug) =>
+              drug.active_ingredients.some((ingredient) =>
+                ingredient.name.toLowerCase().includes(value.toLowerCase())
+              )
+            )
+          );
+        });
+        console.log("Filtered Results:", results); // Debugging output
+        setResults(results);
+      });
+  };
+
+  const handleChange = (value) => {
+    setInputValue(value);
+    if (value.trim() !== "") {
+      fetchData(value);
+    } else {
+      setResults([]);
+    }
   };
 
   const handleSpeciesSelect = (species) => {
@@ -20,8 +47,8 @@ function SearchForm({ onSearch }) {
         className="search-form__input"
         type="text"
         placeholder="Enter drug name"
-        value={input}
-        onChange={handleInputChange}
+        value={inputValue}
+        onChange={(e) => handleChange(e.target.value)}
       ></input>
       <div className="search-form__dropdown-container">
         <button className="search-form__submit" type="submit">

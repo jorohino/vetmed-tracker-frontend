@@ -1,9 +1,13 @@
-import { React } from "react";
+import { React, useState } from "react";
 import "./DataHeader.css";
 import Navigation from "../Navigation/Navigation";
 import SearchForm from "../SearchForm/SearchForm";
+import SearchFormList from "../SearchFormList/SearchFormList";
 
-function DataHeader({}) {
+function DataHeader() {
+  const [results, setResults] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+
   return (
     <header className="data-header">
       <div className="data-header__nav-container">
@@ -22,7 +26,15 @@ function DataHeader({}) {
         </p>
         <h1 className="data-header__title">Search for data</h1>
         <div className="data-header__search-container">
-          <SearchForm />
+          <SearchForm
+            setResults={setResults}
+            inputValue={inputValue}
+            setInputValue={setInputValue}
+          />
+          <SearchFormList
+            results={results}
+            onSuggestionClick={(name) => setInputValue(name)}
+          />
         </div>
       </div>
     </header>
