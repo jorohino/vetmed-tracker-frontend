@@ -13,7 +13,7 @@ function About({}) {
       <div className="about__author-info">
         <h1 className="about__title">About the author</h1>
         <p className="about__description">
-          With nearly a decade of experience working in a veterinary hospital,
+          With nearly a decade of experience working in a veterinary industry,
           <strong> Josh Hinostroza</strong>, the creator of the VetMed Reaction
           Tracker, combines a deep love for animals and a passion for helping
           people. Inspired by the need for accessible, data-driven tools to

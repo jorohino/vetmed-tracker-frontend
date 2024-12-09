@@ -1,6 +1,6 @@
 .header {
   margin: 0;
-  padding: 0;
+  padding: 0 0 15px 0;
   display: flex;
   flex-direction: column;
 }
@@ -47,4 +47,30 @@
   max-width: 1000px;
   align-self: center;
   padding-bottom: 10px;
+}
+
+.header__link-container {
+  align-self: center;
+}
+
+.header__link {
+  align-self: center;
+  max-width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  background-color: rgb(47, 113, 229);
+  border: none;
+  border-radius: 100px;
+  color: #fff;
+  font-family: "Roboto";
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.header__link:hover {
+  background-color: rgb(52, 126, 255);
+  transition: 0.25s ease-in-out;
 }

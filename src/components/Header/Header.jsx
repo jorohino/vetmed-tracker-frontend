@@ -1,6 +1,8 @@
 import { React } from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 import Navigation from "../Navigation/Navigation";
+import { FaShieldDog } from "react-icons/fa6";
 
 function Header({}) {
   return (
@@ -32,6 +34,15 @@ function Header({}) {
           <li>Adverse reactions</li>
           <li>Statistics on reaction occurrences</li>
         </ul>
+      </div>
+      <div className="header__link-container">
+        <Link to="/data">
+          <button className="header__link">
+            Explore the Database
+            <br></br>
+            <FaShieldDog />
+          </button>
+        </Link>
       </div>
     </header>
   );
