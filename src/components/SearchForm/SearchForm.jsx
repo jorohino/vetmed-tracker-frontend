@@ -1,8 +1,10 @@
-import { React } from "react";
+import { React, useRef } from "react";
 import "./SearchForm.css";
 import { FaSearch } from "react-icons/fa";
 
 function SearchForm({ onSearch, setResults, inputValue, setInputValue }) {
+  const timeoutRef = useRef(null);
+
   const fetchData = (value) => {
     const encodedValue = encodeURIComponent(value);
 
@@ -15,8 +17,10 @@ function SearchForm({ onSearch, setResults, inputValue, setInputValue }) {
           return (
             result.drug &&
             result.drug.some((drug) =>
-              drug.active_ingredients.some((ingredient) =>
-                ingredient.name.toLowerCase().includes(value.toLowerCase())
+              drug.active_ingredients.some(
+                (ingredient) =>
+                  typeof ingredient.name === "string" &&
+                  ingredient.name.toLowerCase().includes(value.toLowerCase())
               )
             )
           );
@@ -28,8 +32,15 @@ function SearchForm({ onSearch, setResults, inputValue, setInputValue }) {
 
   const handleChange = (value) => {
     setInputValue(value);
+
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
     if (value.trim() !== "") {
-      fetchData(value);
+      timeoutRef.current = setTimeout(() => {
+        fetchData(value);
+      }, 300);
     } else {
       setResults([]);
     }
