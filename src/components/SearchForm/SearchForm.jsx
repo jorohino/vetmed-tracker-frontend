@@ -1,34 +1,10 @@
 import { React, useRef } from "react";
 import "./SearchForm.css";
 import { FaSearch } from "react-icons/fa";
+import { getSuggestions } from "../../utils/adaeApi";
 
 function SearchForm({ onSearch, setResults, inputValue, setInputValue }) {
   const timeoutRef = useRef(null);
-
-  const fetchData = (value) => {
-    const encodedValue = encodeURIComponent(value);
-
-    fetch(
-      `https://api.fda.gov/animalandveterinary/event.json?search=drug.active_ingredients.name:${encodedValue}`
-    )
-      .then((res) => res.json())
-      .then((json) => {
-        const results = (json.results || []).filter((result) => {
-          return (
-            result.drug &&
-            result.drug.some((drug) =>
-              drug.active_ingredients.some(
-                (ingredient) =>
-                  typeof ingredient.name === "string" &&
-                  ingredient.name.toLowerCase().includes(value.toLowerCase())
-              )
-            )
-          );
-        });
-        console.log("Filtered Results:", results); // Debugging output
-        setResults(results);
-      });
-  };
 
   const handleChange = (value) => {
     setInputValue(value);
@@ -39,7 +15,15 @@ function SearchForm({ onSearch, setResults, inputValue, setInputValue }) {
 
     if (value.trim() !== "") {
       timeoutRef.current = setTimeout(() => {
-        fetchData(value);
+        getSuggestions(value)
+          .then((results) => setResults(results))
+          .catch((err) => {
+            if (err.message.includes("404")) {
+              console.warn("No results found for partial input: ", value);
+            } else {
+              console.error("Unexpected error: ", err);
+            }
+          });
       }, 300);
     } else {
       setResults([]);
