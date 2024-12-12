@@ -1,6 +1,10 @@
 .about {
   display: flex;
-  margin: 0 216px 80px 104px;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0 50px 50px;
+  width: 100%;
+  background-color: rgba(245, 246, 247, 1);
 }
 
 .about__author-image {
