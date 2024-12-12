@@ -42,12 +42,16 @@
   }
 
   .about__title {
-    font-size: 30px;
+    font-size: 25px;
     margin: 0;
   }
 
   .about__author-info {
     max-width: 424px;
     padding: 0 0 0 32px;
+  }
+
+  .about__description {
+    font-size: 15px;
   }
 }

@@ -20,6 +20,12 @@
   flex-wrap: wrap;
   align-items: center;
   height: 100%;
-  margin: 64px auto;
+  margin: 20px auto;
   gap: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .featured-data__header {
+    font-size: 25px;
+  }
 }

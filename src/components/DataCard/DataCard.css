@@ -1,6 +1,6 @@
 .data-card {
-  max-width: 29vw;
-  max-height: 576px;
+  width: 325px;
+  height: 250px;
   overflow: hidden;
   border-radius: 16px;
   background-color: #fff;
@@ -49,9 +49,9 @@
 
 .data-card__reaction {
   display: block;
-  margin: 0 0 18px;
-  padding: 0;
-  max-height: 110px;
+  padding: 0 0 18px;
+  margin: 0;
+  max-height: 40%;
   font-family: "Roboto";
   font-size: 16px;
   font-weight: 400;
@@ -67,6 +67,7 @@
 .data-card__frequency {
   margin: 0;
   padding: 0;
+  max-height: 10%;
   text-transform: uppercase;
   font-family: "Roboto Slab";
   font-size: 16px;
@@ -74,4 +75,45 @@
   line-height: 20px;
   color: rgb(182, 188, 191);
   text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 768px) {
+  .data-card__species {
+    font-size: 15px;
+  }
+
+  .data-card__ingredient {
+    font-size: 20px;
+  }
+
+  .data-card__reaction {
+    font-size: 15px;
+  }
+
+  .data-card__frequency {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 545px) {
+  .data-card {
+    width: 250px;
+    height: 175px;
+  }
+
+  .data-card__species {
+    font-size: 10px;
+  }
+
+  .data-card__ingredient {
+    font-size: 15px;
+  }
+
+  .data-card__reaction {
+    font-size: 10px;
+  }
+
+  .data-card__frequency {
+    font-size: 10px;
+  }
 }

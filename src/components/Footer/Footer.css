@@ -53,3 +53,51 @@
   margin-left: 24px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  .footer__copyright {
+    font-size: 12px;
+  }
+
+  .footer__links {
+    font-size: 12px;
+  }
+
+  .footer__fb-btn {
+    height: 20px;
+    width: 20px;
+  }
+
+  .footer__gh-btn {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+@media screen and (max-width: 545px) {
+  .footer {
+    padding: 10px 15px 40px;
+  }
+
+  .footer__links {
+    font-size: 10px;
+  }
+
+  .footer__fb-btn {
+    width: 15px;
+    height: 15px;
+  }
+
+  .footer__gh-btn {
+    width: 15px;
+    height: 15px;
+  }
+
+  .footer__home-btn {
+    padding: 0 10px 0 0;
+  }
+
+  .footer__t10-btn {
+    padding: 0 10px 0 0;
+  }
+}

@@ -5,6 +5,7 @@
   padding: 25px 40px 10px;
   color: #fff;
   justify-content: space-between;
+  align-items: center;
 }
 
 .navigation__logo-container {
@@ -74,4 +75,42 @@
 .navigation__data-btn:hover {
   color: #ebe9e9;
   transition: 0.25s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation__title {
+    font-size: 20px;
+  }
+  .navigation__logo {
+    width: 30px;
+    height: 30px;
+  }
+
+  .navigation__btn-container {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 545px) {
+  .navigation {
+    padding: 25px 10px 10px;
+  }
+
+  .navigation__logo-container {
+    gap: 3px;
+  }
+
+  .navigation__title {
+    font-size: 15px;
+  }
+
+  .navigation__logo {
+    height: 15px;
+    width: 15px;
+  }
+
+  .navigation__btn-container {
+    font-size: 12px;
+    gap: 5px;
+  }
 }

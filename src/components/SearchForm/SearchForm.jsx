@@ -66,6 +66,7 @@ function SearchForm({
         placeholder="Enter drug name"
         value={inputValue}
         onChange={(e) => handleChange(e.target.value)}
+        required
       ></input>
       <div className="search-form__dropdown-container">
         <button className="search-form__submit" type="submit">
