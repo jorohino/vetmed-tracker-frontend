@@ -43,17 +43,15 @@ function getData(ingredientName, species = "") {
     : "";
 
   return fetch(
-    `${baseUrl}?search=drug.active_ingredients.name:${encodedIngredientName}${encodedSpecies}&api_key=${APIkey}`
+    `${baseUrl}?search=drug.active_ingredients.name:${encodedIngredientName}${encodedSpecies}&count=reaction.veddra_term_name.exact&api_key=${APIkey}`
   )
     .then(checkResponse)
     .then((json) =>
       (json.results || []).map((item) => ({
-        species: item.animal?.species || "Unknown",
+        species: species || "All Species",
         ingredient: ingredientName,
-        reaction: item.reaction?.[0]?.veddra_term_name || "No reaction listed",
-        frequency: `${item.number_of_animals_affected || 0} reports out of ${
-          item.number_of_animals_treated || 0
-        } patients`,
+        reaction: item.term || "No reaction listed",
+        frequency: `${item.count || 0} reports`,
       }))
     )
     .catch((err) => {
@@ -109,3 +107,29 @@ function getTotalAffected(ingredientName, reaction, species = "") {
 }
 
 export { baseUrl, getSuggestions, getData, getTotalTreated, getTotalAffected };
+
+/* https://api.fda.gov/animalandveterinary/event.json?search=active_ingredients.name="Ivermectin"+AND+animal.species:"Dog"&count=reaction.veddra_term_name.exact
+    FOR EACH RESULT, CREATE ONE CARD PER TERM + COUNT = TOTAL AFFECTED
+      results: [
+        {
+          "term": {reaction}
+          "count": {frequency}
+        }
+        {
+          ...
+          ...
+        }
+      ]
+
+/* https://api.fda.gov/animalandveterinary/event.json?search=active_ingredients.name="Ivermectin"+AND+animal.species:"Dog"&count=number_of_animals_treated
+     FOR EACH RESULT, MULTIPLE TERM * COUNT THEN ADD TO TOTAL = TOTAL TREATED
+      results: [
+        {
+          "term": {# of patients per report}
+          "count": {total reports for above term}
+        }
+        {
+          ...
+          ...
+        }
+     ] */

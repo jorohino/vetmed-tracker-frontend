@@ -2,14 +2,24 @@ import { React, useState } from "react";
 import "./DataCardList.css";
 import DataCard from "../DataCard/DataCard";
 
-function DataCardList({ onCardClick, results }) {
+function DataCardList({ onCardClick, results, setResults }) {
   const [visibleCount, setVisibleCount] = useState(4);
 
   const visibleResults = results.slice(0, visibleCount);
 
+  const resetResults = () => {
+    setVisibleCount(4);
+    return setResults([]);
+  };
+
   return (
     <div className="data-card-list">
-      <h1 className="data-card-list__header">Search results</h1>
+      <div className="data-card-list__header-container">
+        <h1 className="data-card-list__header">Search results</h1>
+        <button className="data-card-list__reset-btn" onClick={resetResults}>
+          Reset
+        </button>
+      </div>
       <div className="data-card-list__container">
         {visibleResults.map((result, index) => (
           <DataCard

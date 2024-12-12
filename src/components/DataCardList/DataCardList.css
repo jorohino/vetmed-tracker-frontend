@@ -6,12 +6,39 @@
   background-color: rgba(245, 246, 247, 1);
 }
 
+.data-card-list__header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 40px;
+}
+
 .data-card-list__header {
   font-family: "Roboto Slab";
   font-size: 30px;
   font-weight: 400;
   line-height: 64px;
-  margin: 0 40px;
+}
+
+.data-card-list__reset-btn {
+  max-width: 15%;
+  max-height: 20%;
+  padding: 10px 20px;
+  background-color: rgb(47, 113, 229);
+  border: none;
+  border-radius: 100px;
+  color: #fff;
+  font-family: "Roboto";
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.data-card-list__reset-btn:hover {
+  background-color: rgb(52, 126, 255);
+  transition: 0.25s ease-in-out;
 }
 
 .data-card-list__container {
@@ -19,6 +46,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   height: 100%;
   margin: 64px auto;
   gap: 16px;

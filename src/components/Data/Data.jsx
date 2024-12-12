@@ -14,7 +14,11 @@ function Data({ onCardClick }) {
         inputValue={inputValue}
         setInputValue={setInputValue}
       />
-      <DataCardList onCardClick={onCardClick} results={results} />
+      <DataCardList
+        onCardClick={onCardClick}
+        results={results}
+        setResults={setResults}
+      />
     </>
   );
 }
