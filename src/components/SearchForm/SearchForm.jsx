@@ -3,7 +3,12 @@ import "./SearchForm.css";
 import { FaSearch } from "react-icons/fa";
 import { getSuggestions, getData } from "../../utils/adaeApi";
 
-function SearchForm({ setResults, inputValue, setInputValue }) {
+function SearchForm({
+  setResults,
+  setSuggestionResults,
+  inputValue,
+  setInputValue,
+}) {
   const [selectedSpecies, setSelectedSpecies] = useState("");
   const timeoutRef = useRef(null);
 
@@ -17,7 +22,7 @@ function SearchForm({ setResults, inputValue, setInputValue }) {
     if (value.trim() !== "") {
       timeoutRef.current = setTimeout(() => {
         getSuggestions(value)
-          .then((results) => setResults(results))
+          .then((results) => setSuggestionResults(results))
           .catch((err) => {
             if (err.message.includes("404")) {
               console.warn("No results found for partial input: ", value);
@@ -27,7 +32,7 @@ function SearchForm({ setResults, inputValue, setInputValue }) {
           });
       }, 300);
     } else {
-      setResults([]);
+      setSuggestionResults([]);
     }
   };
 

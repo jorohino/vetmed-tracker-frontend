@@ -46,6 +46,16 @@ function getData(ingredientName, species = "") {
     `${baseUrl}?search=drug.active_ingredients.name:${encodedIngredientName}${encodedSpecies}&api_key=${APIkey}`
   )
     .then(checkResponse)
+    .then((json) =>
+      (json.results || []).map((item) => ({
+        species: item.animal?.species || "Unknown",
+        ingredient: ingredientName,
+        reaction: item.reaction?.[0]?.veddra_term_name || "No reaction listed",
+        frequency: `${item.number_of_animals_affected || 0} reports out of ${
+          item.number_of_animals_treated || 0
+        } patients`,
+      }))
+    )
     .catch((err) => {
       console.error("API Fetch Error:", err);
       throw err;

@@ -1,12 +1,11 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
 import "./DataHeader.css";
 import Navigation from "../Navigation/Navigation";
 import SearchForm from "../SearchForm/SearchForm";
 import SearchFormList from "../SearchFormList/SearchFormList";
 
-function DataHeader() {
-  const [results, setResults] = useState([]);
-  const [inputValue, setInputValue] = useState("");
+function DataHeader({ inputValue, setInputValue, setResults }) {
+  const [suggestionResults, setSuggestionResults] = useState([]);
 
   return (
     <header className="data-header">
@@ -28,11 +27,12 @@ function DataHeader() {
         <div className="data-header__search-container">
           <SearchForm
             setResults={setResults}
+            setSuggestionResults={setSuggestionResults}
             inputValue={inputValue}
             setInputValue={setInputValue}
           />
           <SearchFormList
-            results={results}
+            results={suggestionResults}
             onSuggestionClick={(name) => setInputValue(name)}
           />
         </div>
