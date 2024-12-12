@@ -68,22 +68,39 @@ function SearchForm({ setResults, inputValue, setInputValue }) {
           <FaSearch />
         </button>
         <div className="search-form__dropdown">
-          <ul>
-            {[
-              "Dog",
-              "Cat",
-              "Horse",
-              "Cattle",
-              "Pig",
-              "Sheep",
-              "Goat",
-              "Chicken",
-            ].map((species) => (
-              <li key={species} onClick={() => handleSpeciesSelect(species)}>
-                {species}
-              </li>
-            ))}
-          </ul>
+          <label>
+            <input
+              className="search-form__dropdown-radio-btns"
+              type="radio"
+              name="species"
+              value=""
+              checked={selectedSpecies === ""}
+              onChange={() => setSelectedSpecies("")}
+            />
+            All
+          </label>
+          {[
+            "Dog",
+            "Cat",
+            "Horse",
+            "Cattle",
+            "Pig",
+            "Sheep",
+            "Goat",
+            "Chicken",
+          ].map((species) => (
+            <label key={species}>
+              <input
+                className="search-form__dropdown-radio-btns"
+                type="radio"
+                name="species"
+                value={species}
+                checked={selectedSpecies === species}
+                onChange={() => setSelectedSpecies(species)}
+              />
+              {species}
+            </label>
+          ))}
         </div>
       </div>
     </form>
