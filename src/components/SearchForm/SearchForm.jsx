@@ -1,9 +1,10 @@
-import { React, useRef } from "react";
+import { React, useRef, useState } from "react";
 import "./SearchForm.css";
 import { FaSearch } from "react-icons/fa";
-import { getSuggestions } from "../../utils/adaeApi";
+import { getSuggestions, getData } from "../../utils/adaeApi";
 
-function SearchForm({ onSearch, setResults, inputValue, setInputValue }) {
+function SearchForm({ setResults, inputValue, setInputValue }) {
+  const [selectedSpecies, setSelectedSpecies] = useState("");
   const timeoutRef = useRef(null);
 
   const handleChange = (value) => {
@@ -31,13 +32,29 @@ function SearchForm({ onSearch, setResults, inputValue, setInputValue }) {
   };
 
   const handleSpeciesSelect = (species) => {
-    if (onSearch) {
-      onSearch({ species });
+    setSelectedSpecies(species);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!inputValue.trim()) {
+      console.alert("No ingredient name provided");
+      return;
     }
+
+    getData(inputValue, selectedSpecies)
+      .then((results) => {
+        console.log("Search results: ", results);
+        setResults(results);
+      })
+      .catch((err) => {
+        console.error("Error performing search: ", err);
+      });
   };
 
   return (
-    <div className="search-form">
+    <form className="search-form" onSubmit={handleSubmit}>
       <input
         className="search-form__input"
         type="text"
@@ -52,18 +69,24 @@ function SearchForm({ onSearch, setResults, inputValue, setInputValue }) {
         </button>
         <div className="search-form__dropdown">
           <ul>
-            <li>Dog</li>
-            <li>Cat</li>
-            <li>Horse</li>
-            <li>Cattle</li>
-            <li>Pig</li>
-            <li>Sheep</li>
-            <li>Goat</li>
-            <li>Chicken</li>
+            {[
+              "Dog",
+              "Cat",
+              "Horse",
+              "Cattle",
+              "Pig",
+              "Sheep",
+              "Goat",
+              "Chicken",
+            ].map((species) => (
+              <li key={species} onClick={() => handleSpeciesSelect(species)}>
+                {species}
+              </li>
+            ))}
           </ul>
         </div>
       </div>
-    </div>
+    </form>
   );
 }
 
