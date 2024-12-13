@@ -30,6 +30,13 @@ function DataHeader({
           medication use. The creators of this app are not responsible for any
           decisions made based on the information provided.
         </p>
+        <p className="data-header__text">
+          To use this application, either enter a drug ingredient name (E.g.:
+          "Amoxycillin", "Prednisolone", "Doxycycline") or begin typing and
+          choose a suggested drug ingredient from the list. Then, either click
+          submit to search records for all species, or hover over the submit
+          button to choose a species from the dropdown menu.
+        </p>
         <h1 className="data-header__title">Search for data</h1>
         <div className="data-header__search-container">
           <SearchForm
