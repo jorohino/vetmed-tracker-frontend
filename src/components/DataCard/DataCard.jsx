@@ -3,7 +3,7 @@ import "./DataCard.css";
 
 function DataCard({ onCardClick, species, ingredient, reaction, frequency }) {
   const handleCardClick = () => {
-    onCardClick(species, ingredient, reaction, frequency);
+    onCardClick({ species, ingredient, reaction, frequency });
   };
 
   return (

@@ -12,6 +12,9 @@ import Footer from "../Footer/Footer";
 // Modal Component Imports
 import Modal from "../Modal/Modal";
 
+// API Imports
+import { getSuggestions, getData } from "../../utils/adaeApi";
+
 // Style Imports
 import "./App.css";
 
@@ -19,6 +22,11 @@ function App() {
   // State + Context Setup
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
+  const [results, setResults] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+  const [suggestionResults, setSuggestionResults] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [selectedSpecies, setSelectedSpecies] = useState("");
 
   // Navigation Setup
   const navigate = useNavigate();
@@ -46,8 +54,39 @@ function App() {
 
   // UI Interaction Handlers
   const handleCardClick = (card) => {
+    console.log("Card clicked: ", card);
     setActiveModal("data");
     setSelectedCard(card);
+  };
+
+  // Search Logic
+  const handleSearch = () => {
+    if (!inputValue.trim()) {
+      console.alert("No ingredient name provided");
+      return;
+    }
+
+    setIsLoading(true);
+    getData(inputValue, selectedSpecies)
+      .then((results) => {
+        setResults(results);
+      })
+      .catch((err) => console.error("Error fetching data: ", err))
+      .finally(() => setIsLoading(false));
+  };
+
+  const handleSuggestionSearch = (value) => {
+    if (!value.trim()) {
+      setSuggestionResults([]);
+      return;
+    }
+
+    getSuggestions(value)
+      .then((results) => {
+        console.log("Suggestion results: ", results);
+        setSuggestionResults(results);
+      })
+      .catch((err) => console.error("Error fetching suggestions: ", err));
   };
 
   return (
@@ -57,7 +96,22 @@ function App() {
           <Route path="/" element={<Main onCardClick={handleCardClick} />} />
           <Route
             path="/data"
-            element={<Data onCardClick={handleCardClick} />}
+            element={
+              <Data
+                onCardClick={handleCardClick}
+                results={results}
+                setResults={setResults}
+                inputValue={inputValue}
+                setInputValue={setInputValue}
+                isLoading={isLoading}
+                setIsLoading={setIsLoading}
+                suggestionResults={suggestionResults}
+                handleSearch={handleSearch}
+                handleSuggestionSearch={handleSuggestionSearch}
+                selectedSpecies={selectedSpecies}
+                setSelectedSpecies={setSelectedSpecies}
+              />
+            }
           />
         </Routes>
         <Footer />

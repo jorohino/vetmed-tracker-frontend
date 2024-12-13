@@ -1,8 +1,9 @@
 import { React, useState } from "react";
 import "./DataCardList.css";
 import DataCard from "../DataCard/DataCard";
+import Preloader from "../Preloader/Preloader";
 
-function DataCardList({ onCardClick, results, setResults }) {
+function DataCardList({ onCardClick, results, setResults, isLoading }) {
   const [visibleCount, setVisibleCount] = useState(4);
 
   const visibleResults = results.slice(0, visibleCount);
@@ -20,6 +21,18 @@ function DataCardList({ onCardClick, results, setResults }) {
           Reset
         </button>
       </div>
+      {isLoading && (
+        <div className="data-card-list__preloader">
+          <Preloader />
+          <h3 className="data-card-list__preloader-text">Loading data...</h3>
+        </div>
+      )}
+
+      {!isLoading && results.length === 0 && (
+        <div className="data-card-list__empty">
+          <h3 className="data-card-list__empty-text">Nothing found.</h3>
+        </div>
+      )}
       <div className="data-card-list__container">
         {visibleResults.map((result, index) => (
           <DataCard
@@ -28,11 +41,11 @@ function DataCardList({ onCardClick, results, setResults }) {
             ingredient={result.ingredient}
             reaction={result.reaction}
             frequency={result.frequency}
-            onCardClick={onCardClick}
+            onCardClick={() => onCardClick(result)}
           />
         ))}
       </div>
-      {results.length > visibleCount && (
+      {!isLoading && results.length > visibleCount && (
         <button
           className="data-card-list__show-more-btn"
           onClick={() => setVisibleCount((prevCount) => prevCount + 4)}

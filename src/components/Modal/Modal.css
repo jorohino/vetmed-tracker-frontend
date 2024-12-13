@@ -51,7 +51,7 @@
   color: rgb(26, 27, 34);
 }
 
-.modal__drug-info-container {
+.modal__more-info-container {
   margin: 0;
   padding: 0;
   display: flex;
@@ -61,18 +61,5 @@
   font-weight: 400;
 }
 
-.modal__drug-info {
-}
-
-.modal__rxn-info-container {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  font-family: "Inter";
-  font-weight: 400;
-}
-
-.modal__rxn-info {
+.modal__more-info {
 }

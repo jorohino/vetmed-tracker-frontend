@@ -1,15 +1,7 @@
 import { React } from "react";
 import "./Modal.css";
 
-function Modal({
-  card,
-  isOpen,
-  onClose,
-  species,
-  ingredient,
-  reaction,
-  frequency,
-}) {
+function Modal({ card, isOpen, onClose }) {
   return (
     <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
       <div className="modal__content">
@@ -21,18 +13,18 @@ function Modal({
         ></button>
         <div className="modal__more-info-container">
           <p className="modal__more-info">
-            <strong>Species:</strong> {species}
+            <strong>Species:</strong> {card.species || "N/A"}
           </p>
           <p className="modal__more-info">
-            <strong>Active ingredient:</strong> {ingredient}
+            <strong>Active ingredient:</strong> {card.ingredient || "N/A"}
           </p>
           <p className="modal__more-info">
-            <strong>Reaction:</strong> {reaction}
+            <strong>Reaction:</strong> {card.reaction || "N/A"}
+          </p>
+          <p className="modal__more-info">
+            <strong>Total reports:</strong> {card.frequency || "N/A"}
           </p>
         </div>
-        <p className="modal__more-info">
-          <strong>Total reports:</strong> {frequency}
-        </p>
       </div>
     </div>
   );

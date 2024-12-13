@@ -4,9 +4,16 @@ import Navigation from "../Navigation/Navigation";
 import SearchForm from "../SearchForm/SearchForm";
 import SearchFormList from "../SearchFormList/SearchFormList";
 
-function DataHeader({ inputValue, setInputValue, setResults }) {
-  const [suggestionResults, setSuggestionResults] = useState([]);
-
+function DataHeader({
+  inputValue,
+  setInputValue,
+  setResults,
+  suggestionResults,
+  handleSearch,
+  handleSuggestionSearch,
+  selectedSpecies,
+  setSelectedSpecies,
+}) {
   return (
     <header className="data-header">
       <div className="data-header__nav-container">
@@ -27,9 +34,12 @@ function DataHeader({ inputValue, setInputValue, setResults }) {
         <div className="data-header__search-container">
           <SearchForm
             setResults={setResults}
-            setSuggestionResults={setSuggestionResults}
+            handleSearch={handleSearch}
+            handleSuggestionSearch={handleSuggestionSearch}
             inputValue={inputValue}
             setInputValue={setInputValue}
+            selectedSpecies={selectedSpecies}
+            setSelectedSpecies={setSelectedSpecies}
           />
           <SearchFormList
             results={suggestionResults}
