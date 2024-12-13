@@ -1,0 +1,103 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Roboto";
+  font-weight: 400;
+  padding: 10px 40px 25px;
+}
+
+.footer__copyright {
+  color: rgba(182, 188, 191, 1);
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.footer__links {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.footer__home-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0 40px 0 0;
+}
+
+.footer__t10-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0 40px 0 0;
+}
+
+.footer__gh-btn {
+  background: no-repeat transparent center url("../../assets/github.svg");
+  border: none;
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.footer__fb-btn {
+  background: no-repeat transparent center url("../../assets/fb.svg");
+  border: none;
+  height: 24px;
+  width: 24px;
+  padding: 0;
+  margin-left: 24px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .footer__copyright {
+    font-size: 12px;
+  }
+
+  .footer__links {
+    font-size: 12px;
+  }
+
+  .footer__fb-btn {
+    height: 20px;
+    width: 20px;
+  }
+
+  .footer__gh-btn {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+@media screen and (max-width: 545px) {
+  .footer {
+    padding: 10px 15px 40px;
+  }
+
+  .footer__links {
+    font-size: 10px;
+  }
+
+  .footer__fb-btn {
+    width: 15px;
+    height: 15px;
+  }
+
+  .footer__gh-btn {
+    width: 15px;
+    height: 15px;
+  }
+
+  .footer__home-btn {
+    padding: 0 10px 0 0;
+  }
+
+  .footer__t10-btn {
+    padding: 0 10px 0 0;
+  }
+}

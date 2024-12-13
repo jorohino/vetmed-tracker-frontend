@@ -1,0 +1,119 @@
+.data-card {
+  width: 325px;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 16px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border: solid 1px transparent;
+  cursor: pointer;
+}
+
+.data-card:hover {
+  border: solid 1px rgba(86, 134, 255, 1);
+  transition: 0.5s ease-in-out;
+}
+
+.data-card__text-container {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  box-sizing: border-box;
+  max-height: 304px;
+  text-overflow: ellipsis;
+  height: 100%;
+}
+
+.data-card__species {
+  padding: 0;
+  margin: 0 0 12px;
+  font-family: "Source Sans 3";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  color: rgb(182, 188, 191);
+}
+
+.data-card__ingredient {
+  margin: 0;
+  padding: 0 0 16px;
+  font-family: "Roboto Slab";
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 30px;
+  color: rgb(26, 27, 28);
+  text-overflow: ellipsis;
+}
+
+.data-card__reaction {
+  display: block;
+  padding: 0 0 18px;
+  margin: 0;
+  max-height: 40%;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  color: rgb(26, 27, 28);
+  overflow: hidden;
+  -webkit-line-clamp: 4;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+}
+
+.data-card__frequency {
+  margin: 0;
+  padding: 0;
+  max-height: 10%;
+  text-transform: uppercase;
+  font-family: "Roboto Slab";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  color: rgb(182, 188, 191);
+  text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 768px) {
+  .data-card__species {
+    font-size: 15px;
+  }
+
+  .data-card__ingredient {
+    font-size: 20px;
+  }
+
+  .data-card__reaction {
+    font-size: 15px;
+  }
+
+  .data-card__frequency {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 545px) {
+  .data-card {
+    width: 250px;
+    height: 175px;
+  }
+
+  .data-card__species {
+    font-size: 10px;
+  }
+
+  .data-card__ingredient {
+    font-size: 15px;
+  }
+
+  .data-card__reaction {
+    font-size: 10px;
+  }
+
+  .data-card__frequency {
+    font-size: 10px;
+  }
+}

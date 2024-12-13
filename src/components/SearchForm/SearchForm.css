@@ -1,0 +1,139 @@
+.search-form {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.search-form__input {
+  width: 100%;
+  height: 42px;
+  padding: 10px 50px 10px 20px;
+  margin: 0;
+  border: 1px solid rgba(209, 210, 214, 1);
+  border-radius: 100px;
+  outline: none;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+}
+
+.search-form__input::placeholder {
+  color: rgba(182, 188, 191, 1);
+}
+
+.search-form__dropdown-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 27%;
+  height: 64px;
+}
+
+.search-form__submit {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  background-color: rgb(47, 113, 229);
+  border: none;
+  border-radius: 100px;
+  color: #fff;
+  font-family: "Roboto";
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.search-form__submit:hover {
+  background-color: rgb(52, 126, 255);
+  transition: 0.24s ease-in-out;
+}
+
+.search-form__dropdown {
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  box-sizing: border-box;
+  top: 63px;
+  width: 100%;
+  background-color: white;
+  border: 1px solid rgba(209, 210, 214, 1);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.search-form__dropdown-container:hover .search-form__dropdown {
+  transition: 0.25s ease-in-out;
+  opacity: 1;
+  visibility: visible;
+}
+
+.search-form__dropdown-container:hover .search-form__submit {
+  border-radius: 8px 8px 0 0;
+}
+
+.search-form__dropdown label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.search-form__dropdown-radio-btns {
+  margin: 0;
+  padding: 0;
+}
+
+.search-form__dropdown label:hover {
+  background-color: rgba(47, 113, 229, 0.1);
+}
+
+@media screen and (max-width: 768px) {
+  .search-form__dropdown-container {
+    max-width: 160px;
+  }
+
+  .search-form__submit {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .search-form__dropdown label {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+}
+
+@media screen and (max-width: 545px) {
+  .search-form__dropdown-container {
+    max-width: 100px;
+  }
+
+  .search-form__submit {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .search-form__dropdown label {
+    font-size: 10px;
+    padding: 2px 5px;
+  }
+
+  .search-form__input {
+    font-size: 15px;
+  }
+}
