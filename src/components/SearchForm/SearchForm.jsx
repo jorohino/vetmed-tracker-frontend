@@ -1,4 +1,3 @@
-import { React, useRef, useState } from "react";
 import "./SearchForm.css";
 import { FaSearch } from "react-icons/fa";
 

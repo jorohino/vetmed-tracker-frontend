@@ -1,9 +1,7 @@
-import { React } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo.png";
 import "./Navigation.css";
 
-function Navigation({}) {
+function Navigation() {
   return (
     <div className="navigation">
       <Link to="/">

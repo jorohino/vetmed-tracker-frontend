@@ -1,8 +1,6 @@
 // External Library + Context Imports
 import { useEffect, useState } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
-
-// Utility Imports
+import { Route, Routes } from "react-router-dom";
 
 // Primary Component Imports
 import Main from "../Main/Main";
@@ -27,9 +25,6 @@ function App() {
   const [suggestionResults, setSuggestionResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedSpecies, setSelectedSpecies] = useState("");
-
-  // Navigation Setup
-  const navigate = useNavigate();
 
   // Modal Management
   const closeActiveModal = () => {

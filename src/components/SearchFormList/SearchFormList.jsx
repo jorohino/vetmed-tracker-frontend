@@ -1,4 +1,3 @@
-import React from "react";
 import "./SearchFormList.css";
 import SearchFormResult from "../SearchFormResult/SearchFormResult";
 

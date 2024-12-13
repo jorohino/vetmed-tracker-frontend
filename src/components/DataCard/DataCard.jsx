@@ -1,4 +1,3 @@
-import { React } from "react";
 import "./DataCard.css";
 
 function DataCard({ onCardClick, species, ingredient, reaction, frequency }) {

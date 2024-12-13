@@ -1,8 +1,7 @@
-import { React } from "react";
 import author from "../../assets/author.jpg";
 import "./About.css";
 
-function About({}) {
+function About() {
   return (
     <div className="about">
       <img

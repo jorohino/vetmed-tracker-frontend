@@ -1,4 +1,3 @@
-import React from "react";
 import "./SearchFormResult.css";
 
 export const SearchFormResult = ({ name, onClick }) => {

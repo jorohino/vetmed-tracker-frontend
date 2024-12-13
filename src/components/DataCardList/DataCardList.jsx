@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { useState } from "react";
 import "./DataCardList.css";
 import DataCard from "../DataCard/DataCard";
 import Preloader from "../Preloader/Preloader";

@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "./DataHeader.css";
 import Navigation from "../Navigation/Navigation";
 import SearchForm from "../SearchForm/SearchForm";
