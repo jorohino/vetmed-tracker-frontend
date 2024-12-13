@@ -63,3 +63,9 @@
 
 .modal__more-info {
 }
+
+@media screen and (max-width: 525px) {
+  .modal__content {
+    width: 75%;
+  }
+}
